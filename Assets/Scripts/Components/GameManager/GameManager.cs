@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text text;
 
+    [Header("HUD")]
+    public TMP_Text distanceText;
+
     [Header("Audio Clips")]
     public AudioClip fireGunSound;
 
@@ -109,6 +112,10 @@ public class GameManager : MonoBehaviour
         if (text != null)
         {
             text.text = "" + score;
+        }
+        if (distanceText != null && road != null)
+        {
+            distanceText.text = "Distance: " + Mathf.FloorToInt(road.distanceTraveled) + " / " + finishDistance;
         }
     }
 

@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollWithRoad
   truck: {fileID: 0}
-  destroyY: -10
+  destroyY: -12
