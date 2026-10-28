@@ -26,6 +26,11 @@ public class RoadScroller : MonoBehaviour
 
     public void Update()
     {
+        if (truck == null)
+        {
+            return;
+        }
+
         float moveAmount = truck.currentSpeed * Time.deltaTime;
         distanceTraveled = distanceTraveled + moveAmount;
 

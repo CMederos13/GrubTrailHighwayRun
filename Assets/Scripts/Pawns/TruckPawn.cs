@@ -69,7 +69,7 @@ public class TruckPawn : Pawn
         }
     }
 
-    private float GetLaneX(int lane)
+    public float GetLaneX(int lane)
     {
         float firstLaneX = -(laneCount - 1) * laneWidth / 2f;
         return firstLaneX + lane * laneWidth;
