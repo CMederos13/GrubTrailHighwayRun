@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2afaac76fdcf3438e76fdc9631c397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
-  damageAmount: 25
+  damageAmount: 20
   isInstaKill: 0
 --- !u!114 &6750065700585942694
 MonoBehaviour:
