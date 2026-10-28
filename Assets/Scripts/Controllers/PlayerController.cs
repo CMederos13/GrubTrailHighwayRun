@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Reads the player's key presses and tells the ship (pawn) what to do
+// Reads the player's key presses and tells the Truck (pawn) what to do
 public class PlayerController : Controller
 {
     [Header("Steering")]

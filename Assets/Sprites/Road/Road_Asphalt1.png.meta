@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 902be05e888fa7743a62b49a58d48181
+guid: 53529174c6df0d24c9afec2f7a530938
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3869383391017954108
-    second: Shoulder_Grass_1_0
+      213: 4009360479903369343
+    second: Road_Asphalt_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shoulder_Grass_1_0
+      name: Road_Asphalt_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1027
-        height: 1800
+        width: 1026
+        height: 1798
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c414968e403d4ac0800000000000000
-      internalID: -3869383391017954108
+      spriteID: f78412d2d1c14a730800000000000000
+      internalID: 4009360479903369343
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shoulder_Grass_1_0: -3869383391017954108
+      Road_Asphalt_1_0: 4009360479903369343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

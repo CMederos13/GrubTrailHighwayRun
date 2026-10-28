@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 53529174c6df0d24c9afec2f7a530938
+guid: fca2f0bda71e40d4a8136cb4a49d93ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4009360479903369343
-    second: Road_Asphalt_1_0
+      213: 3016594404827855322
+    second: Road_Asphalt_2_0
+  - first:
+      213: 2459106056349959487
+    second: Road_Asphalt_2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,12 +118,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Road_Asphalt_1_0
+      name: Road_Asphalt_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1026
+        width: 157
         height: 1798
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,8 +133,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f78412d2d1c14a730800000000000000
-      internalID: 4009360479903369343
+      spriteID: ad9f13be0a81dd920800000000000000
+      internalID: 3016594404827855322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Asphalt_2_1
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 0
+        width: 150
+        height: 1798
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3540c9edef702220800000000000000
+      internalID: 2459106056349959487
       vertices: []
       indices: 
       edges: []
@@ -140,7 +165,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -150,7 +175,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Road_Asphalt_1_0: 4009360479903369343
+      Road_Asphalt_2_0: 3016594404827855322
+      Road_Asphalt_2_1: 2459106056349959487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

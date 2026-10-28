@@ -318,12 +318,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TruckPawn
   tf: {fileID: 0}
   laneCount: 4
-  laneWidth: 1.8
+  laneWidth: 1.7
   laneChangeSpeed: 10
   minSpeed: 4
   maxSpeed: 12
   acceleration: 6
   currentSpeed: 6
+--- !u!1 &1110674025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110674027}
+  - component: {fileID: 1110674026}
+  m_Layer: 0
+  m_Name: Road
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1110674026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110674025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e0d77d7c874a145b7ce40b08fbf7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoadScroller
+  roadSprite: {fileID: 21300000, guid: 53529174c6df0d24c9afec2f7a530938, type: 3}
+  shoulderSprite: {fileID: 21300000, guid: 902be05e888fa7743a62b49a58d48181, type: 3}
+  tileCount: 3
+  tileHeight: 17.98
+  shoulderOffset: 10.265
+  truck: {fileID: 814287719}
+  distanceTraveled: 0
+--- !u!4 &1110674027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110674025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305788209
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,3 +436,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 814287718}
   - {fileID: 1305788211}
+  - {fileID: 1110674027}
