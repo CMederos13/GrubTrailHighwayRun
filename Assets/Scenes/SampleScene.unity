@@ -660,11 +660,11 @@ AudioSource:
   m_GameObject: {fileID: 1187293459}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7249153245745040033, guid: 1b2da3c0bd8e9724d810ce26d6093dbc, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: a332f1d26684d2644b2730322ee3eaa6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -757,7 +757,7 @@ AudioSource:
   m_GameObject: {fileID: 1187293459}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 464726040886363653, guid: 1b2da3c0bd8e9724d810ce26d6093dbc, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -871,8 +871,8 @@ MonoBehaviour:
   zombieHordeSound: {fileID: 8300000, guid: a2e70d64cb6b50846ba80613cc1027ef, type: 3}
   explosionSound: {fileID: 8300000, guid: 1940805d1bf354e469a0159e20892739, type: 3}
   sfxPlayer: {fileID: 1187293461}
-  musicPlayer: {fileID: 0}
-  cameraListener: {fileID: 0}
+  musicPlayer: {fileID: 1187293460}
+  cameraListener: {fileID: 519420029}
   mainMenuScreen: {fileID: 0}
   creditsScreen: {fileID: 0}
   settingsScreen: {fileID: 0}
