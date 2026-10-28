@@ -1,13 +1,13 @@
 using UnityEngine;
 
-//Shoots bullets from a spawn pont (used by the player's ship)
+//Shoots bullets from a spawn pont (used by the player's truck)
 public class ShooterBullet : Shooter
 {
     [Header("Bullet Settings")]
-    public Transform bulletSpawnPoint; // Where the bullet spawns (Ship's nose)
+    public Transform bulletSpawnPoint; // Where the bullet spawns (Truck's gun)
     public GameObject bulletPrefab; // the bullet that gets fired 
 
-    // Creates a bullet at the spawn point, facing the same direction as the nose of the ship
+    // Creates a bullet at the spawn point, facing the same direction as the truck's gun
     public override void Shoot()
     {
         if (bulletSpawnPoint != null && bulletPrefab != null)

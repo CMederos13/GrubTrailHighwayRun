@@ -5,17 +5,17 @@ public class DeathDestroyManager : Death
 
 {
     [Header("Score")]
-    public int scoreValue; // Points the player gets for destroying Obstacles and Enemies
-    private Obstacle ObstacleToRemoveOnDeath;
+    public int scoreValue; // Points the player gets for destroying zombies and wrecks
+    private Enemy enemyToRemoveOnDeath;
 
     [Header("Splitting")]
-    public GameObject splitPreFab; // smaller asteroid to spawn on death (Leave empty for no split wanted)
+    public GameObject splitPreFab; // smaller piece to spawn on death (Leave empty for no split wanted)
     public int splitCount = 2; //Designer can set up how many pieces spawn
 
     //Called when health reaches 0
     public override void Die()
     {
-        // Spawn the smaller pieces FIRST so the obstacle list never hits 0 between frames
+        // Spawn the smaller pieces FIRST so the enemy list never hits 0 between frames
         if (splitPreFab != null)
         {
             for (int i = 0; i < splitCount; i++)
@@ -26,15 +26,15 @@ public class DeathDestroyManager : Death
 
         if (GameManager.instance != null)
         {
-            if (GameManager.instance.obstacleList != null && ObstacleToRemoveOnDeath != null)
+            if (GameManager.instance.enemyList != null && enemyToRemoveOnDeath != null)
             {
-                GameManager.instance.obstacleList.Remove(ObstacleToRemoveOnDeath);
+                GameManager.instance.enemyList.Remove(enemyToRemoveOnDeath);
             }
 
             GameManager.instance.score += scoreValue;
 
             // Play the explosion sound through SFX Player
-            GameManager.instance.sfxPlayer.PlayOneShot(GameManager.instance.deathSound);
+            GameManager.instance.sfxPlayer.PlayOneShot(GameManager.instance.explosionSound);
         
         }
         
@@ -42,10 +42,10 @@ public class DeathDestroyManager : Death
         Destroy(gameObject);
     }
 
-    // Finds this enemy's Obstacle so it can be removed from the list on death
+    // Finds this enemy's Enemy component so it can be removed from the list on death
     public override void Start()
     {
-        ObstacleToRemoveOnDeath = GetComponent<Obstacle>();
+        enemyToRemoveOnDeath = GetComponent<Enemy>();
     }
 
     // Required by Death; nothing to do every frame

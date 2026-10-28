@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     private Transform tf;
 
-    // Pushes the bullet forward the way the ship's facing, and sets it up to be destroyed
+    // Pushes the bullet forward the way the truck's facing, and sets it up to be destroyed
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Handles the player's ship dying; explosion sound, camera takes over
+// Handles the player's truck dying; explosion sound, camera takes over
 public class DeathPawn : Death
 {
 
@@ -8,20 +8,20 @@ public class DeathPawn : Death
     public override void Die()
     {
         // Play the explosion sound through the GameManager's SFX player
-        GameManager.instance.sfxPlayer.PlayOneShot(GameManager.instance.deathSound);
+        GameManager.instance.sfxPlayer.PlayOneShot(GameManager.instance.explosionSound);
 
         
         //Hands over Listening priority to the camera so sounds can still be heard after destroyed
-        AudioListener shipListener = GetComponent<AudioListener>();
+        AudioListener truckListener = GetComponent<AudioListener>();
         
-        if (shipListener != null)
+        if (truckListener != null)
         {
-            shipListener.enabled = false;
+            truckListener.enabled = false;
         }
 
         GameManager.instance.cameraListener.enabled = true;
 
-        //Destroying the ship lets the GameManager see it's gone and respawn or end the game
+        //Destroying the truck lets the GameManager see it's gone and end the game
         Destroy(gameObject);
         
     }

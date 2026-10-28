@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Base class for anything that can shoot (the player ship uses ShooterBullet)
+// Base class for anything that can shoot (the player truck uses ShooterBullet)
 public abstract class Shooter : MonoBehaviour
 {
     // Each shooter sets itself up

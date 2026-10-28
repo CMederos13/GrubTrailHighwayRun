@@ -5,7 +5,7 @@ public abstract class AIController : Controller
 {
     protected Transform target; // What this AI is Chasing
 
-    protected void FindPlayerTarget() // finds the player's current ship (it changes each time the player respawns) 
+    protected void FindPlayerTarget() // finds the player's truck 
     {
         target = null;
 

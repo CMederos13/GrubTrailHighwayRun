@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Base class for anything a controller can move (Player Ship, UFO)
+// Base class for anything a controller can move (the truck, zombies)
 public abstract class Pawn : MonoBehaviour
 {
 

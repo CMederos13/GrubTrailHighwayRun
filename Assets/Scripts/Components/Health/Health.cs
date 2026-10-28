@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         //If I'm already dead. Ignore any more damage
-        //This ends the method right there and skips everything below it; ex. a dead asteroid hit by a second bullet in the same frame
+        //This ends the method right there and skips everything below it; ex. a dead zombie hit by a second bullet in the same frame
         if (currentHealth <= 0)
         {
             return;

@@ -1,18 +1,18 @@
 using UnityEngine;
 
 
-public class Obstacle : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
    
     void Awake()
     {
-        GameManager.instance.obstacleList.Add(this);
+        GameManager.instance.enemyList.Add(this);
 
-        //Get this enemy's Audio Source and start Its 3D Hum
+        //Get this enemy's Audio Source and start Its zombie horde sound
         AudioSource humSource = GetComponent<AudioSource>();
         if(humSource != null)
         {
-            humSource.clip = GameManager.instance.ufoHumSound;
+            humSource.clip = GameManager.instance.zombieHordeSound;
             humSource.Play();
         }
     }
@@ -20,7 +20,7 @@ public class Obstacle : MonoBehaviour
     {
         if (GameManager.instance != null)
         {
-            GameManager.instance.obstacleList.Remove(this);
+            GameManager.instance.enemyList.Remove(this);
         }
     }
 
