@@ -1,5 +1,7 @@
 //PE104 — Project 4 Milestone 1-3 : "Project Planning", "A good start", and "Final Project"
 
+// My Board:[CMederos13.github.io](CMederos13.github.io)
+
 //Student: Christian Mederos
 
 //Course: GPE104 — Game Programming
@@ -8,7 +10,8 @@
 
 //Repository: https://github.com/CMederos13/GrubTrailHighwayRun
 
-// Youtube : **Milestone 1** [https://youtu.be/wdlH9rPvZB0](https://youtu.be/wdlH9rPvZB0)
+// Youtube : **Milestone 1** [https://youtu.be/wdlH9rPvZB0](https://youtu.be/wdlH9rPvZB0) 
+**Milestone 2** [https://youtu.be/GttrWVcXaAo](https://youtu.be/GttrWVcXaAo)
 
                                                                         ** Overview **
  
@@ -21,5 +24,23 @@
 
 // 4. started scripts for game project.
 
-// Commit history **All commits with be in the commits section
-// Planning= [GrubTrail_Planning(FR).docx](https://github.com/user-attachments/files/34086960/GrubTrail_Planning.FR.docx)
+// 5. Milestone 1 has been typed and completed check below for new word documents
+
+// 6. Completed Milestone 1
+
+// 7. Completed Milestone 1 Project planning and video
+
+// 8. Started transferring Project 2 codes along with Assets and sounds to the unity project
+
+// 9. Milestone 2 Core engine 8-hours complete
+
+// 10. Milestone 2 Project Planning updated, Youtube video demonstration completed 
+
+// 11. Milestone 3 started 
+
+// Commit history **All commits with be in the commits section**
+
+// Credits listed in Word Documents for a more detailed list of what was used
+
+// Planning= [GrubTrail_Planning(FR).docx](https://github.com/user-attachments/files/34086960/GrubTrail_Planning.FR.docx) **Miles 2 Update added**[GrubTrail_Project4_Milestone2.docx](https://github.com/user-attachments/files/34111950/GrubTrail_Project4_Milestone2.docx)
+
