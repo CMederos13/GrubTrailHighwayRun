@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// Runs the game: singleton, win/lose checks, HUD, sounds and screens
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    // Road distance and finish line for the highway run
     [Header("Highway")]
     public RoadScroller road;
     public float finishDistance = 500f;
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
     private bool isGameRunning = false;
 
 
+    // Makes this the only GameManager and keeps it between scenes
     public void Awake()
     {
         enemyList = new List<Enemy>();
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Starts the music, then starts the game or shows the main menu
     void Start()
     {
         if (musicPlayer != null)
@@ -103,6 +107,7 @@ public class GameManager : MonoBehaviour
             {
                 PlayerDied();
             }
+            // Reaching the finish distance wins the game
             else if (road != null && road.distanceTraveled >= finishDistance)
             {
                 DoShowVictory();
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
         {
             text.text = "" + score;
         }
+        // Shows distance traveled on the HUD
         if (distanceText != null && road != null)
         {
             distanceText.text = "Distance: " + Mathf.FloorToInt(road.distanceTraveled) + " / " + finishDistance;
@@ -130,6 +136,7 @@ public class GameManager : MonoBehaviour
         DoShowGameOver();
     }
 
+    // Plays a sound effect through the SFX player
     public void PlaySound(AudioClip clip)
     {
         if (sfxPlayer != null && clip != null)
@@ -138,6 +145,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Turns a screen on or off, skipping it if it isn't set up yet
     private void SetScreen(GameObject screen, bool isOn)
     {
         if (screen != null)
@@ -188,6 +196,7 @@ public class GameManager : MonoBehaviour
         SetScreen(settingsScreen, true);
     }
 
+    // Shows gameplay, resets the score and starts the run
     public void DoStartGame()
     {
         HideAllScreens();
@@ -204,6 +213,7 @@ public class GameManager : MonoBehaviour
         isGameRunning = true;
     }
 
+    // Player reached the finish: show victory and freeze the game
     public void DoShowVictory()
     {
         isGameRunning = false;
@@ -213,6 +223,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    // Truck was destroyed: show game over and freeze the game
     public void DoShowGameOver()
     {
         isGameRunning = false;

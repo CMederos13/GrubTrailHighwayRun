@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Scrolls the road and grass down at the truck's speed and tracks distance
 public class RoadScroller : MonoBehaviour
 {
     [Header("Road Pieces")]
@@ -18,6 +19,7 @@ public class RoadScroller : MonoBehaviour
     public void Start()
     {
         tiles = new Transform[tileCount];
+        // Lays out the road tiles stacked on top of each other
         for (int i = 0; i < tileCount; i++)
         {
             tiles[i] = MakeTile(i * tileHeight);
@@ -26,6 +28,7 @@ public class RoadScroller : MonoBehaviour
 
     public void Update()
     {
+        // Stops scrolling once the truck is destroyed 
         if (truck == null)
         {
             return;
@@ -37,6 +40,7 @@ public class RoadScroller : MonoBehaviour
         for (int i = 0; i < tiles.Length; i++)
         {
             tiles[i].position = tiles[i].position + Vector3.down * moveAmount;
+            //Moves a tile that went off the bottom back to the top
             if (tiles[i].position.y <= -tileHeight)
             {
                 tiles[i].position = tiles[i].position + Vector3.up * tileHeight * tileCount;
@@ -44,6 +48,7 @@ public class RoadScroller : MonoBehaviour
         }
     }
 
+    // Builds one row: road in the middle, grass on both sides
     private Transform MakeTile(float y)
     {
         GameObject tile = new GameObject("RoadTile");
@@ -55,6 +60,7 @@ public class RoadScroller : MonoBehaviour
         return tile.transform;
     }
 
+    // Creates one sprite piece (road or grass) inside a row 
     private void AddPiece(Transform parent, Sprite sprite, float x)
     {
         GameObject piece = new GameObject(sprite.name);

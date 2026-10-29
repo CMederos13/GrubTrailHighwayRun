@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// The player's military truck: changes lanes, speeds up and slows down, and shoots
 public class TruckPawn : Pawn
 {
     [Header("Components")]
@@ -32,6 +33,7 @@ public class TruckPawn : Pawn
         tf.position = Vector3.MoveTowards(tf.position, targetPosition, laneChangeSpeed * Time.deltaTime);
     }
 
+    //Moves one lane left unless already in the leftmost lane 
     public override void MoveLeft()
     {
         if (currentLane > 0)
@@ -40,6 +42,7 @@ public class TruckPawn : Pawn
         }
     }
 
+    // Moves one lane right unless already in the rightmost lane
     public override void MoveRight()
     {
         if (currentLane < laneCount - 1)
@@ -48,12 +51,14 @@ public class TruckPawn : Pawn
         }
     }
 
+    // Speeds up over time, kept between min and max speed
     public override void SpeedUp()
     {
         currentSpeed = currentSpeed + acceleration * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
     }
 
+    // Slows down over time, kept between min and max speed
     public override void SlowDown()
     {
         currentSpeed = currentSpeed - acceleration * Time.deltaTime;
@@ -69,6 +74,7 @@ public class TruckPawn : Pawn
         }
     }
 
+    // Converts a lane number (0-3) into an x position, centered on the road
     public float GetLaneX(int lane)
     {
         float firstLaneX = -(laneCount - 1) * laneWidth / 2f;
