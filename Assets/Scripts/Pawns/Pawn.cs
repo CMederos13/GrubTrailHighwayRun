@@ -20,5 +20,10 @@ public abstract class Pawn : MonoBehaviour
 
     //Fires the pawn's weapon 
     public abstract void Shoot();
+    
+    public virtual void AimAt(Vector3 targetPosition)
+    {
+
+    }
 
 }

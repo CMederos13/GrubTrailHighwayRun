@@ -19,6 +19,9 @@ public class TruckPawn : Pawn
     public float acceleration = 6f;
     public float currentSpeed = 6f;
 
+    [Header("Gun")]
+    public Transform gunPivot;
+
     public override void Start()
     {
         tf = GetComponent<Transform>();
@@ -72,6 +75,20 @@ public class TruckPawn : Pawn
         {
             sh.Shoot();
         }
+    }
+    public override void AimAt(Vector3 targetPosition)
+    {
+        if(gunPivot == null)
+        {
+            return;
+        }
+
+        Vector3 direction = targetPosition - gunPivot.position;
+        direction.z = 0f;
+        gunPivot.up = direction;
+
+
+
     }
 
     // Converts a lane number (0-3) into an x position, centered on the road

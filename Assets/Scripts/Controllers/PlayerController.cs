@@ -24,6 +24,9 @@ public class PlayerController : Controller
     {
         if (pawn != null)
         {
+            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pawn.AimAt(mouseWorld);
+
             if (Input.GetKeyDown(moveLeftKey) || Input.GetKeyDown(moveLeftAltKey))
             {
                 pawn.MoveLeft();
@@ -49,6 +52,7 @@ public class PlayerController : Controller
                 pawn.Shoot();
             }
         }
+        
     }
 
     //Registers this controller with the GameManager so it's able to hand controls to the new truck
