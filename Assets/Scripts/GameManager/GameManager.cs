@@ -152,6 +152,16 @@ public class GameManager : MonoBehaviour
         {
             screen.SetActive(isOn);
         }
+        
+    }
+
+    private void ClearEnemies()
+    {
+        foreach (Enemy enemy in enemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        enemyList.Clear();
     }
 
     //Turns screen and gameplay off, this on what it needs when the bottons clicked
@@ -216,6 +226,7 @@ public class GameManager : MonoBehaviour
     // Player reached the finish: show victory and freeze the game
     public void DoShowVictory()
     {
+        ClearEnemies();
         isGameRunning = false;
         Debug.Log("You made it to the finish!");
         HideAllScreens();
@@ -226,6 +237,7 @@ public class GameManager : MonoBehaviour
     // Truck was destroyed: show game over and freeze the game
     public void DoShowGameOver()
     {
+        ClearEnemies();
         isGameRunning = false;
         Debug.Log("Game Over");
         HideAllScreens();

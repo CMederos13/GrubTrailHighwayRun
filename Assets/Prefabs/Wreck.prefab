@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   damageAmount: 20
   isInstaKill: 0
+  targetTag: Player
 --- !u!114 &6750065700585942694
 MonoBehaviour:
   m_ObjectHideFlags: 0

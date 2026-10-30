@@ -9,11 +9,17 @@ public class Damage : MonoBehaviour
 
     public bool isInstaKill; // If checked , kills instantly no matter the health
 
+    public string targetTag = ""; 
+
     private Health OtherHealthComponent;
 
     // When this touches something with health; deal damage
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(targetTag != "" && !collision.CompareTag(targetTag))
+        {
+            return;
+        }
         OtherHealthComponent = collision.GetComponent<Health>();
 
         if (OtherHealthComponent != null)
