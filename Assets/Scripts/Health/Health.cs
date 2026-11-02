@@ -114,7 +114,6 @@ public class Health : MonoBehaviour
 
         // if health > max then set health to max
         //if (currentHealth > maxHealth)
-        // {
         //   currentHealth = maxHealth;
         // setting the max health for healing 
 
@@ -131,9 +130,7 @@ public class Health : MonoBehaviour
             healthBar.fillAmount = currentHealth / maxHealth;
         }
 
-
     }
-
 
     public void Die()
     {
