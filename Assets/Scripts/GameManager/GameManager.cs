@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Runs the game: singleton, win/lose checks, HUD, sounds and screens
@@ -30,8 +31,10 @@ public class GameManager : MonoBehaviour
 
     [Header("HUD")]
     public TMP_Text scoreText;
+    public TMP_Text highScoreText;
     public TMP_Text distanceText;
     public TMP_Text ammoText;
+    public Image progressFill;
 
     [Header("End Screen Text")]
     public TMP_Text gameOverScoreText;
@@ -124,10 +127,21 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: " + score;
         }
 
+        if (highScoreText != null)
+        {
+            int bestScore = Mathf.Max(score, PlayerPrefs.GetInt("HighScore", 0));
+            highScoreText.text = "Best: " + bestScore;
+        }
+
         // Shows distance traveled on the HUD
         if (distanceText != null && road != null)
         {
             distanceText.text = "Distance: " + Mathf.FloorToInt(road.distanceTraveled) + " / " + finishDistance;
+        }
+
+        if (progressFill != null && road != null)
+        {
+            progressFill.fillAmount = road.distanceTraveled / finishDistance;
         }
 
         if (ammoText != null && playerController != null && playerController.pawn != null)

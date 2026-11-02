@@ -34,7 +34,7 @@ public class WreckSpawner : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             SpawnWreck();
-            spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
+            spawnTimer = Random.Range(minSpawnTime, maxSpawnTime) / GameManager.instance.GetDifficulty();
         }
     }
 

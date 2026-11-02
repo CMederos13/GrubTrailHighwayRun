@@ -31,7 +31,7 @@ public class ZombieSpawner : MonoBehaviour
         if (spawnTimer <= 0f)
         {
             SpawnZombie();
-            spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
+            spawnTimer = Random.Range(minSpawnTime, maxSpawnTime) / GameManager.instance.GetDifficulty();
         }
     }
 

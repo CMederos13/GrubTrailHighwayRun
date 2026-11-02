@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 // Reads the player's key presses and tells the Truck (pawn) what to do
 public class PlayerController : Controller
@@ -22,7 +23,7 @@ public class PlayerController : Controller
 
     public override void MakeDecisions()
     {
-        if (pawn != null)
+        if (pawn != null && Time.timeScale > 0f)
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pawn.AimAt(mouseWorld);
@@ -46,7 +47,7 @@ public class PlayerController : Controller
             }
 
             //Shoot key press 
-            if (Input.GetKeyDown(shootKey))
+            if (Input.GetKeyDown(shootKey) && !IsClickingUI())
             {
                 //telling pawn to shoot
                 pawn.Shoot();
@@ -68,5 +69,9 @@ public class PlayerController : Controller
     public override void Update()
     {
         MakeDecisions();
+    }
+    private bool IsClickingUI()
+    {
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
     }
 }
