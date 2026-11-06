@@ -12,6 +12,7 @@ public class WreckSpawner : MonoBehaviour
     public float spawnY = 8f;
     public float minSpawnTime = 1.5f;
     public float maxSpawnTime = 3f;
+    public float clearCheckHeight = 3f;
 
     private float spawnTimer;
 
@@ -40,9 +41,25 @@ public class WreckSpawner : MonoBehaviour
 
     private void SpawnWreck()
     {
-        // Picks a random lane and places the wreck above the screen
-        int lane = Random.Range(0, truck.laneCount);
-        Vector3 spawnPosition = new Vector3(truck.GetLaneX(lane), spawnY, 0f);
+        // Picks a random lane, then tries the other lanes until it finds an empty one
+        int startLane = Random.Range(0, truck.laneCount);
+        for (int i = 0; i < truck.laneCount; i++)
+        {
+            int lane = (startLane + i) % truck.laneCount;
+            Vector3 spawnPosition = new Vector3(truck.GetLaneX(lane), spawnY, 0f);
+
+            if (IsSpotClear(spawnPosition))
+            {
+                PlaceWreck(spawnPosition);
+                return;
+            }
+        }
+        // Every lane is blocked, so this wreck is skipped
+    }
+
+    // Places the wreck above the screen in the empty lane
+    private void PlaceWreck(Vector3 spawnPosition)
+    {
         GameObject newWreck = Instantiate(wreckPrefab, spawnPosition, Quaternion.identity, transform);
 
         // Gives the wreck a random wreck picture
@@ -55,5 +72,14 @@ public class WreckSpawner : MonoBehaviour
 
         // Tells the wreck which truck's speed to scroll with
         newWreck.GetComponent<ScrollWithRoad>().truck = truck;
+    }
+
+    // Checks a box the size of a lane at the spawn point; true if nothing (wreck, obstacle, pickup or zombie) is there
+    private bool IsSpotClear(Vector3 position)
+    {
+        Physics2D.SyncTransforms();
+        Vector2 checkSize = new Vector2(truck.laneWidth * 0.8f, clearCheckHeight);
+        Collider2D hit = Physics2D.OverlapBox(position, checkSize, 0f);
+        return hit == null;
     }
 }
