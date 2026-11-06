@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip fireGunSound;
     public AudioClip gameOverSound;
+    public AudioClip victorySound;
     public AudioClip gameplayMusic;
     public AudioClip menuMusic;
     public AudioClip takingDamageSound;
@@ -351,6 +352,13 @@ public class GameManager : MonoBehaviour
     // Player reached the finish: show victory and freeze the game
     public void DoShowVictory()
     {
+        // Stops the gameplay music so the victory sound can be heard
+        if (musicPlayer != null)
+        {
+            musicPlayer.Stop();
+        }
+        PlaySound(victorySound);
+
         ClearEnemies();
         isGameRunning = false;
         HideAllScreens();
