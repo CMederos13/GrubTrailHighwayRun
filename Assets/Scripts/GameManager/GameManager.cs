@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 // Runs the game: singleton, win/lose checks, HUD, sounds and screens
 public class GameManager : MonoBehaviour
 {
+    // Singleton: the one shared GameManager any script can reach with GameManager.instance
     public static GameManager instance;
 
+    // Static so they keep their value when the scene reloads (Play Again / Main Menu)
     private static bool playOnLoad = false;
     private static bool startScreenShown = false;
 
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     public float finishDistance = 500f;
     public bool startOnPlay = false;
 
+    // Who is playing, the zombies alive right now (List) and the score
     [Header("Gameplay")]
     public PlayerController playerController;
     public List<Enemy> enemyList;
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject lifeIconPrefab;
     private int currentLives;
 
+    // Texts and the progress bar on the gameplay HUD
     [Header("HUD")]
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Decides what to show first: jump straight into a run, the main menu, or the start screen
     void Start()
     {
         if (startOnPlay || playOnLoad)
@@ -101,10 +106,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Every frame: start screen key press, win/lose checks and updating the HUD
     void Update()
     {
+        // Pressing any key on the start screen opens the main menu
         if (startScreen != null && startScreen.activeSelf && Input.anyKeyDown)
         {
+            // Plays the same click sound as the menu buttons
+            AudioManager audioManager = GetComponent<AudioManager>();
+            if (audioManager != null)
+            {
+                audioManager.Play("UIClick");
+            }
             DoShowMainMenu();
         }
 
@@ -122,11 +135,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // Shows the current score
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score;
         }
 
+        // Shows the best score ever: the saved high score, or this run's score if it is higher
         if (highScoreText != null)
         {
             int bestScore = Mathf.Max(score, PlayerPrefs.GetInt("HighScore", 0));
@@ -139,11 +154,13 @@ public class GameManager : MonoBehaviour
             distanceText.text = "Distance: " + Mathf.FloorToInt(road.distanceTraveled) + " / " + finishDistance;
         }
 
+        // Fills the progress bar: distance / finish distance gives 0 (start) to 1 (finish)
         if (progressFill != null && road != null)
         {
             progressFill.fillAmount = road.distanceTraveled / finishDistance;
         }
 
+        // Shows how much ammo the truck's gun has left
         if (ammoText != null && playerController != null && playerController.pawn != null)
         {
             ShooterBullet shooter = playerController.pawn.GetComponent<ShooterBullet>();
@@ -154,6 +171,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Truck is gone with no lives left: stop the music and show Game Over
     private void PlayerDied()
     {
         //Stops music so Game Over sound is Heard
@@ -165,6 +183,8 @@ public class GameManager : MonoBehaviour
         DoShowGameOver();
     }
 
+    // Takes away one life, updates the medkit icons, clears the zombies
+    // Returns true if the player still has lives left
     public bool LoseLife()
     {
         currentLives = currentLives - 1;
@@ -173,6 +193,7 @@ public class GameManager : MonoBehaviour
         return currentLives > 0;
     }
 
+    // Redraws the medkit icons so there is one for each life left
     private void UpdateLivesUI()
     {
         if (livesContainer == null || lifeIconPrefab == null)
@@ -180,17 +201,21 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // foreach: removes every old icon
         foreach (Transform icon in livesContainer)
         {
             Destroy(icon.gameObject);
         }
 
+        // for loop: makes one new icon per life
         for (int i = 0; i < currentLives; i++)
         {
             Instantiate(lifeIconPrefab, livesContainer);
         }
     }
 
+    // Difficulty goes from 1 at the start to 2 at the finish
+    // Spawners divide their wait time by this, so things spawn faster near the end
     public float GetDifficulty()
     {
         if (road == null)
@@ -209,6 +234,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Plays a music track on loop, unless that track is already playing
     private void PlayMusic(AudioClip clip)
     {
         if (musicPlayer == null || clip == null)
@@ -232,6 +258,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // foreach: destroys every zombie in the enemy list, then empties the list
     private void ClearEnemies()
     {
         foreach (Enemy enemy in enemyList)
@@ -241,6 +268,7 @@ public class GameManager : MonoBehaviour
         enemyList.Clear();
     }
 
+    // PlayerPrefs: saves the score if it beats the high score, so it is remembered after the game closes
     private int SaveHighScore()
     {
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -266,6 +294,7 @@ public class GameManager : MonoBehaviour
         SetScreen(gameplayUI, false);
     }
 
+    // Screen methods below are called by Start/Update and by the menu buttons' On Click
     public void DoShowStartScreen()
     {
         HideAllScreens();
@@ -275,6 +304,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // Shows the main menu with the menu music
     public void DoShowMainMenu()
     {
         startScreenShown = true;
@@ -289,12 +319,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // Shows the credits
     public void DoShowCredits()
     {
         HideAllScreens();
         SetScreen(creditsScreen, true);
     }
 
+    // Shows the settings (volume sliders)
     public void DoShowSettings()
     {
         HideAllScreens();
@@ -350,6 +382,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    // Play Again button: reloads the scene and starts a new run right away
     public void PlayAgain()
     {
         playOnLoad = true;
@@ -357,6 +390,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // Main Menu button: reloads the scene and opens the main menu (skips the start screen)
     public void BackToMainMenu()
     {
         playOnLoad = false;

@@ -12,6 +12,7 @@ public class WreckSpawner : MonoBehaviour
     public float spawnY = 8f;
     public float minSpawnTime = 1.5f;
     public float maxSpawnTime = 3f;
+    // How tall the "is this spot empty" box is
     public float clearCheckHeight = 3f;
 
     private float spawnTimer;

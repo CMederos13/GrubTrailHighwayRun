@@ -1,8 +1,10 @@
 using UnityEngine;
 
+// Spawns a random pickup (food, ammo or repair) in an empty lane every few seconds
 public class PickupSpawner : MonoBehaviour
 {
     [Header("Pickups")]
+    // Adding a prefab more than once makes it come up more often (ammo is in here twice)
     public GameObject[] pickupPrefabs;
 
     [Header("Spawning")]
@@ -10,15 +12,18 @@ public class PickupSpawner : MonoBehaviour
     public float spawnY = 11f;
     public float minSpawnTime = 3f;
     public float maxSpawnTime = 6f;
+    // How tall the "is this spot empty" box is
     public float clearCheckHeight = 3f;
 
     private float spawnTimer;
 
+    // Waits the longest spawn time before the first pickup
     public void Start()
     {
         spawnTimer = maxSpawnTime;
     }
 
+    // Counts down, then spawns a pickup and picks a new random wait time
     public void Update()
     {
         if (truck == null)
