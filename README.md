@@ -10,6 +10,8 @@
 
 //Repository: https://github.com/CMederos13/GrubTrailHighwayRun
 
+//Play it on itch.io (Windows): https://cmederos.itch.io/grubtrail-highway-run
+
 // Youtube : **Milestone 1** [https://youtu.be/wdlH9rPvZB0](https://youtu.be/wdlH9rPvZB0) 
 **Milestone 2** [https://youtu.be/GttrWVcXaAo](https://youtu.be/GttrWVcXaAo)
 
@@ -36,6 +38,12 @@
 // 9. Milestone 2 Project Planning updated, Youtube video demonstration completed 
 
 // 10. Milestone 3 started 
+
+// 11. Milestone 3: Main menu, settings, credits, pause, AudioManager (Dictionary), difficulty ramp, finish line, street obstacles, progress bar, high score, engine and victory sounds
+
+// 12. Tidy-up, comments added to all scripts, Windows build uploaded to itch.io
+
+// Controls: A/D or Left/Right = change lanes, W/S or Up/Down = speed, Mouse = aim, Left Click = shoot, Esc = pause/settings
 
 // Commit history **All commits with be in the commits section**
 
